@@ -1,7 +1,5 @@
 #include "SQLconnPool.hpp"
 
-SqlConnPool::SqlConnPool() = default;
-
 SqlConnPool::~SqlConnPool()
 {
     ClosePool();

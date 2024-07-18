@@ -240,3 +240,9 @@ void Log::SetLevel(int level)
     std::lock_guard<std::mutex> locker(_mtx);
     _level = level;
 }
+
+bool Log::IsOpen()
+{
+    std::lock_guard<std::mutex> locker(_mtx);
+    return _is_open;
+}

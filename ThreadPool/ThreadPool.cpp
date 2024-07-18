@@ -1,9 +1,6 @@
 #include "ThreadPool.hpp"
 
-ThreadPool::ThreadPool() = default;
-ThreadPool::ThreadPool(ThreadPool &&) = default;
-
-explicit ThreadPool::ThreadPool(size_t num_threads) : _pool(std::make_shared<Pool>())
+ThreadPool::ThreadPool(size_t num_threads) : _pool(std::make_shared<Pool>())
 {
     assert(num_threads > 0);
     for (int i = 0; i < num_threads; ++i)
@@ -42,12 +39,4 @@ ThreadPool::~ThreadPool()
         _pool->_is_close = true;
     }
     _pool->_cond.notify_all();
-}
-
-template <typename T>
-void ThreadPool::AddTask(T &&task)
-{
-    std::unique_lock<std::mutex> locker(_pool->_mtx);
-    _pool->_tasks.emplace(std::forward<T>(task));
-    _pool->_cond.notify_one();
 }

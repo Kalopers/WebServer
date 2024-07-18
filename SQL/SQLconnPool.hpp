@@ -12,7 +12,7 @@
 class SqlConnPool
 {
 private:
-    SqlConnPool();
+    SqlConnPool() = default;
     ~SqlConnPool();
 
     int _MAX_CONN;
