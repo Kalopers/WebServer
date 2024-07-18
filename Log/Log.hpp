@@ -65,8 +65,8 @@ public:
     do {\
         Log* log = Log::Instance();\
         if (log->IsOpen() && log->GetLevel() <= level) {\
-            log->write(level, format, ##__VA_ARGS__); \
-            log->flush();\
+            log->Write(level, format, ##__VA_ARGS__); \
+            log->Flush();\
         }\
     } while(0);
 

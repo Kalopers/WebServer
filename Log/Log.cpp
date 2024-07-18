@@ -28,6 +28,25 @@ Log::~Log()
     }
 }
 
+// Log::~Log() {
+//     if (_log_queue) {
+//         while (!_log_queue->empty()) {
+//             _log_queue->flush();
+//         }
+//         _log_queue->Close();
+//     }
+
+//     if (_write_thread && _write_thread->joinable()) {
+//         _write_thread->join();
+//     }
+
+//     if (_fp) {
+//         std::unique_lock<std::mutex> locker(_mtx);
+//         Flush();
+//         fclose(_fp);
+//     }
+// }
+
 void Log::Flush()
 {
     if (_is_async)
@@ -36,6 +55,15 @@ void Log::Flush()
     }
     fflush(_fp);
 }
+
+// void Log::Flush() {
+//     if (_is_async && _log_queue) {
+//         _log_queue->flush();
+//     }
+//     if (_fp) {
+//         fflush(_fp);
+//     }
+// }
 
 void Log::FlushLogThread()
 {
@@ -70,11 +98,12 @@ void Log::Init(int level, const char *path, const char *suffix, int max_queue_ca
         _is_async = true;
         if (!_log_queue)
         {
-            std::unique_ptr<BlockQueue<std::string>> new_log_queue(new BlockQueue<std::string>);
-            _log_queue = std::move(new_log_queue);
-
-            std::unique_ptr<std::thread> new_write_thread(new std::thread(AsyncWrite_));
-            _write_thread = std::move(new_write_thread);
+            // std::unique_ptr<BlockQueue<std::string>> new_log_queue(new BlockQueue<std::string>);
+            // _log_queue = std::move(new_log_queue);
+            // std::unique_ptr<std::thread> new_write_thread(new std::thread(AsyncWrite_));
+            // _write_thread = std::move(new_write_thread);
+            _log_queue = std::make_unique<BlockQueue<std::string>>(max_queue_capacity);
+            _write_thread = std::make_unique<std::thread>(&Log::AsyncWrite_, this);
         }
     }
     else
@@ -103,6 +132,11 @@ void Log::Init(int level, const char *path, const char *suffix, int max_queue_ca
         {
             mkdir(_path, 0777);
             _fp = fopen(file_name, "a");
+            if (_fp == nullptr)
+            {
+                fprintf(stderr, "Failed to open log file: %s\n", file_name);
+                return;
+            }   
         }
     }
 }
