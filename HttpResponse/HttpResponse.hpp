@@ -19,7 +19,8 @@ public:
     void Init(const std::string &srcDir, std::string &path, bool isKeepAlive = false, int code = -1);
     void MakeResponse(Buffer &buff);
     void UnmapFile();
-    char *File();
+    // char *File();
+    std::unique_ptr<char[]> File();
     size_t FileLen() const;
     void ErrorContent(Buffer &buff, std::string message);
     int Code() const;
@@ -28,17 +29,19 @@ private:
     void AddStateLine_(Buffer &buff);
     void AddHeader_(Buffer &buff);
     void AddContent_(Buffer &buff);
+    std::unique_ptr<char[]> MapFile(const std::string &path, size_t &fileSize);
 
     void ErrorHtml();
     std::string GetFileType();
 
-    int code;
-    bool isKeepAlive;
+    int _code;
+    bool _isKeepAlive;
 
     std::string _path;
     std::string _srcDir;
 
-    char *_mmFile;
+    // char *_mmFile;
+    std::unique_ptr<char[]> _mmFile;
     struct stat _mmFileStat;
 
     static const std::unordered_map<std::string, std::string> _SUFFIX_TYPE;
