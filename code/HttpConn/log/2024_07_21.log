@@ -49998,3 +49998,80 @@
 2024-07-21 12:16:43.390537 [info] : Client[33] quit!
 2024-07-21 12:16:43.390595 [info] : Client[18] quit!
 2024-07-21 12:16:43.390605 [info] : Client[18](127.0.0.1:34198) quit, UserCount:11
+2024-07-21 14:08:01.923761 [info] : ========== Server Init ==========
+2024-07-21 14:08:01.923776 [info] : Port:1316, OpenLinger: false
+2024-07-21 14:08:01.923778 [info] : Listen Mode: ET, OpenConn Mode: ET
+2024-07-21 14:08:01.923780 [info] : LogSys level: 1
+2024-07-21 14:08:01.923781 [info] : srcDir: /home/kalo/WebServer/code/HttpConn/resources/
+2024-07-21 14:08:01.923782 [info] : SqlConnPool num: 12, ThreadPool num: 6
+2024-07-21 14:08:01.923783 [info] : ========== Server start ==========
+2024-07-21 14:08:06.323024 [info] : Client[18](127.0.0.1:43406) in, userCount:1
+2024-07-21 14:09:21.712973 [info] : ========== Server Init ==========
+2024-07-21 14:09:21.712986 [info] : Port:1316, OpenLinger: false
+2024-07-21 14:09:21.712988 [info] : Listen Mode: ET, OpenConn Mode: ET
+2024-07-21 14:09:21.712989 [info] : LogSys level: 1
+2024-07-21 14:09:21.712991 [info] : srcDir: /home/kalo/WebServer/code/HttpConn/resources/
+2024-07-21 14:09:21.712992 [info] : SqlConnPool num: 12, ThreadPool num: 6
+2024-07-21 14:09:21.712993 [info] : ========== Server start ==========
+2024-07-21 14:10:35.312383 [info] : ========== Server Init ==========
+2024-07-21 14:10:35.312401 [info] : Port:1316, OpenLinger: false
+2024-07-21 14:10:35.312404 [info] : Listen Mode: ET, OpenConn Mode: ET
+2024-07-21 14:10:35.312405 [info] : LogSys level: 1
+2024-07-21 14:10:35.312406 [info] : srcDir: /home/kalo/WebServer/code/HttpConn/resources/
+2024-07-21 14:10:35.312407 [info] : SqlConnPool num: 12, ThreadPool num: 6
+2024-07-21 14:10:35.312409 [info] : ========== Server start ==========
+2024-07-21 14:10:39.320381 [info] : Client[18](127.0.0.1:38942) in, userCount:1
+2024-07-21 14:12:46.809744 [info] : ========== Server Init ==========
+2024-07-21 14:12:46.809761 [info] : Port:1316, OpenLinger: false
+2024-07-21 14:12:46.809763 [info] : Listen Mode: ET, OpenConn Mode: ET
+2024-07-21 14:12:46.809764 [info] : LogSys level: 1
+2024-07-21 14:12:46.809765 [info] : srcDir: /home/kalo/WebServer/code/HttpConn/resources/
+2024-07-21 14:12:46.809767 [info] : SqlConnPool num: 12, ThreadPool num: 6
+2024-07-21 14:12:46.809805 [info] : ========== Server start ==========
+2024-07-21 14:17:31.306415 [info] : ========== Server Init ==========
+2024-07-21 14:17:31.306509 [info] : Port:1316, OpenLinger: false
+2024-07-21 14:17:31.306713 [info] : Listen Mode: ET, OpenConn Mode: ET
+2024-07-21 14:17:31.306753 [info] : LogSys level: 1
+2024-07-21 14:17:31.306868 [info] : srcDir: /home/kalo/WebServer/code/HttpConn/resources/
+2024-07-21 14:17:31.306916 [info] : SqlConnPool num: 12, ThreadPool num: 6
+2024-07-21 14:17:31.306972 [info] : ========== Server start ==========
+2024-07-21 14:17:35.592612 [info] : Client[18](127.0.0.1:40094) in, userCount:1
+2024-07-21 14:20:51.029701 [info] : ========== Server Init ==========
+2024-07-21 14:20:51.029716 [info] : Port:1316, OpenLinger: false
+2024-07-21 14:20:51.029718 [info] : Listen Mode: ET, OpenConn Mode: ET
+2024-07-21 14:20:51.029720 [info] : LogSys level: 1
+2024-07-21 14:20:51.029721 [info] : srcDir: /home/kalo/WebServer/code/HttpConn/resources/
+2024-07-21 14:20:51.029761 [info] : SqlConnPool num: 12, ThreadPool num: 6
+2024-07-21 14:20:51.029837 [info] : ========== Server start ==========
+2024-07-21 14:20:52.876521 [info] : Client[18](127.0.0.1:41034) in, userCount:1
+2024-07-21 14:23:07.277596 [info] : ========== Server Init ==========
+2024-07-21 14:23:07.277611 [info] : Port:1316, OpenLinger: false
+2024-07-21 14:23:07.277613 [info] : Listen Mode: ET, OpenConn Mode: ET
+2024-07-21 14:23:07.277614 [info] : LogSys level: 1
+2024-07-21 14:23:07.277615 [info] : srcDir: /home/kalo/WebServer/code/HttpConn/resources/
+2024-07-21 14:23:07.277656 [info] : SqlConnPool num: 12, ThreadPool num: 6
+2024-07-21 14:23:07.277735 [info] : ========== Server start ==========
+2024-07-21 14:23:10.144526 [info] : Client[18](127.0.0.1:47698) in, userCount:1
+2024-07-21 14:23:44.622349 [info] : ========== Server Init ==========
+2024-07-21 14:23:44.622364 [info] : Port:1316, OpenLinger: false
+2024-07-21 14:23:44.622366 [info] : Listen Mode: ET, OpenConn Mode: ET
+2024-07-21 14:23:44.622368 [info] : LogSys level: 1
+2024-07-21 14:23:44.622369 [info] : srcDir: /home/kalo/WebServer/code/HttpConn/resources/
+2024-07-21 14:23:44.622370 [info] : SqlConnPool num: 12, ThreadPool num: 6
+2024-07-21 14:23:44.622412 [info] : ========== Server start ==========
+2024-07-21 14:23:46.428058 [info] : Client[18](127.0.0.1:40738) in, userCount:1
+2024-07-21 14:27:30.231967 [info] : ========== Server Init ==========
+2024-07-21 14:27:30.231984 [info] : Port:1316, OpenLinger: false
+2024-07-21 14:27:30.231987 [info] : Listen Mode: ET, OpenConn Mode: ET
+2024-07-21 14:27:30.231989 [info] : LogSys level: 1
+2024-07-21 14:27:30.231990 [info] : srcDir: /home/kalo/WebServer/code/HttpConn/resources/
+2024-07-21 14:27:30.231992 [info] : SqlConnPool num: 12, ThreadPool num: 6
+2024-07-21 14:27:30.231993 [info] : ========== Server start ==========
+2024-07-21 14:27:33.631097 [info] : Client[18](127.0.0.1:59376) in, userCount:1
+2024-07-21 14:28:20.132507 [info] : ========== Server Init ==========
+2024-07-21 14:28:20.132526 [info] : Port:1316, OpenLinger: false
+2024-07-21 14:28:20.132529 [info] : Listen Mode: ET, OpenConn Mode: ET
+2024-07-21 14:28:20.132530 [info] : LogSys level: 1
+2024-07-21 14:28:20.132569 [info] : srcDir: /home/kalo/WebServer/code/HttpConn/resources/
+2024-07-21 14:28:20.132572 [info] : SqlConnPool num: 12, ThreadPool num: 6
+2024-07-21 14:28:20.132574 [info] : ========== Server start ==========

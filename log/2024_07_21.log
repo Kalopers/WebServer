@@ -174,3 +174,96 @@
 2024-07-21 12:07:01.042424 [info] : Client[85] in!
 2024-07-21 12:07:01.042427 [info] : Client[86](127.0.0.1:44234) in, userCount:62
 2024-07-21 12:07:01.042429 [info] : Client[86] in!
+2024-07-21 14:29:12.306923 [info] : ========== Server Init ==========
+2024-07-21 14:29:12.306943 [info] : Port:1316, OpenLinger: false
+2024-07-21 14:29:12.306945 [info] : Listen Mode: ET, OpenConn Mode: ET
+2024-07-21 14:29:12.306947 [info] : LogSys level: 1
+2024-07-21 14:29:12.306988 [info] : srcDir: /home/kalo/WebServer/resources/
+2024-07-21 14:29:12.307558 [info] : SqlConnPool num: 12, ThreadPool num: 6
+2024-07-21 14:29:12.307578 [info] : ========== Server start ==========
+2024-07-21 14:29:14.615838 [info] : Client[18](127.0.0.1:57642) in, userCount:1
+2024-07-21 14:29:30.983571 [info] : ========== Server Init ==========
+2024-07-21 14:29:30.983599 [info] : Port:1316, OpenLinger: false
+2024-07-21 14:29:30.983601 [info] : Listen Mode: ET, OpenConn Mode: ET
+2024-07-21 14:29:30.983603 [info] : LogSys level: 1
+2024-07-21 14:29:30.983604 [info] : srcDir: /home/kalo/WebServer/resources/
+2024-07-21 14:29:30.983606 [info] : SqlConnPool num: 12, ThreadPool num: 6
+2024-07-21 14:29:30.983649 [info] : ========== Server start ==========
+2024-07-21 14:29:34.472008 [info] : Client[18](127.0.0.1:40324) in, userCount:1
+2024-07-21 14:29:34.472076 [info] : Client[18] in!
+2024-07-21 14:29:34.519715 [info] : Client[21](127.0.0.1:40334) in, userCount:2
+2024-07-21 14:29:34.519837 [info] : Client[21] in!
+2024-07-21 14:29:34.736247 [info] : Client[23](127.0.0.1:40338) in, userCount:3
+2024-07-21 14:29:34.736322 [info] : Client[23] in!
+2024-07-21 14:29:35.013522 [info] : Client[24](127.0.0.1:40354) in, userCount:4
+2024-07-21 14:29:35.013655 [info] : Client[24] in!
+2024-07-21 14:29:35.013710 [info] : Client[31](127.0.0.1:40362) in, userCount:5
+2024-07-21 14:29:35.013742 [info] : Client[31] in!
+2024-07-21 14:29:35.013748 [info] : Client[33](127.0.0.1:40372) in, userCount:6
+2024-07-21 14:29:35.013751 [info] : Client[33] in!
+2024-07-21 14:30:00.657837 [info] : Client[34](127.0.0.1:60920) in, userCount:7
+2024-07-21 14:30:00.657889 [info] : Client[34] in!
+2024-07-21 14:30:11.907244 [info] : Verify name:123, pwd:123456
+2024-07-21 14:31:35.302121 [info] : ========== Server Init ==========
+2024-07-21 14:31:35.302139 [info] : Port:1316, OpenLinger: false
+2024-07-21 14:31:35.302142 [info] : Listen Mode: ET, OpenConn Mode: ET
+2024-07-21 14:31:35.302144 [info] : LogSys level: 1
+2024-07-21 14:31:35.302145 [info] : srcDir: /home/kalo/WebServer/resources/
+2024-07-21 14:31:35.302147 [info] : SqlConnPool num: 12, ThreadPool num: 6
+2024-07-21 14:31:35.302148 [info] : ========== Server start ==========
+2024-07-21 14:31:36.103394 [info] : Client[18](127.0.0.1:53756) in, userCount:1
+2024-07-21 14:32:12.702888 [info] : ========== Server Init ==========
+2024-07-21 14:32:12.702903 [info] : Port:1316, OpenLinger: false
+2024-07-21 14:32:12.702905 [info] : Listen Mode: ET, OpenConn Mode: ET
+2024-07-21 14:32:12.702906 [info] : LogSys level: 1
+2024-07-21 14:32:12.702947 [info] : srcDir: /home/kalo/WebServer/resources/
+2024-07-21 14:32:12.702955 [info] : SqlConnPool num: 12, ThreadPool num: 6
+2024-07-21 14:32:12.702957 [info] : ========== Server start ==========
+2024-07-21 14:32:15.598950 [info] : Client[18](127.0.0.1:60702) in, userCount:1
+2024-07-21 14:33:08.846084 [info] : ========== Server Init ==========
+2024-07-21 14:33:08.846105 [info] : Port:1316, OpenLinger: false
+2024-07-21 14:33:08.846108 [info] : Listen Mode: ET, OpenConn Mode: ET
+2024-07-21 14:33:08.846111 [info] : LogSys level: 1
+2024-07-21 14:33:08.846171 [info] : srcDir: /home/kalo/WebServer/resources/
+2024-07-21 14:33:08.846174 [info] : SqlConnPool num: 12, ThreadPool num: 6
+2024-07-21 14:33:08.846177 [info] : ========== Server start ==========
+2024-07-21 14:33:12.629392 [info] : Client[18](127.0.0.1:53174) in, userCount:1
+2024-07-21 14:33:12.629913 [info] : Client[18] in!
+2024-07-21 14:33:12.672337 [info] : Client[21](127.0.0.1:53178) in, userCount:2
+2024-07-21 14:33:12.672787 [info] : Client[21] in!
+2024-07-21 14:33:12.673338 [info] : Verify name:123, pwd:123456
+2024-07-21 14:33:13.229051 [info] : Client[23](127.0.0.1:53182) in, userCount:3
+2024-07-21 14:33:13.229228 [info] : Client[23] in!
+2024-07-21 14:33:13.236110 [info] : Client[24](127.0.0.1:53190) in, userCount:4
+2024-07-21 14:33:13.236346 [info] : Client[24] in!
+2024-07-21 14:33:13.242486 [info] : Client[31](127.0.0.1:53196) in, userCount:5
+2024-07-21 14:33:13.242683 [info] : Client[31] in!
+2024-07-21 14:33:13.246914 [info] : Client[33](127.0.0.1:53202) in, userCount:6
+2024-07-21 14:33:13.247083 [info] : Client[33] in!
+2024-07-21 14:33:22.730227 [info] : Verify name:123, pwd:123456
+2024-07-21 14:35:52.159851 [info] : Timer expired, id: 18.
+2024-07-21 14:35:52.159891 [info] : Verify name:123, pwd:123456
+2024-07-21 14:35:52.159911 [info] : Client[18] quit!
+2024-07-21 14:35:52.159972 [info] : Client[18](127.0.0.1:53174) quit, UserCount:5
+2024-07-21 14:35:52.159986 [info] : Timer expired, id: 24.
+2024-07-21 14:35:52.159988 [info] : Client[24] quit!
+2024-07-21 14:35:52.159998 [info] : Client[24](127.0.0.1:53190) quit, UserCount:4
+2024-07-21 14:35:52.160000 [info] : Timer expired, id: 31.
+2024-07-21 14:35:52.160001 [info] : Client[31] quit!
+2024-07-21 14:35:52.160011 [info] : Client[31](127.0.0.1:53196) quit, UserCount:3
+2024-07-21 14:35:52.160013 [info] : Timer expired, id: 33.
+2024-07-21 14:35:52.160039 [info] : Client[33] quit!
+2024-07-21 14:35:52.160047 [info] : Client[33](127.0.0.1:53202) quit, UserCount:2
+2024-07-21 14:35:52.160052 [info] : Timer expired, id: 23.
+2024-07-21 14:35:52.160054 [info] : Client[23] quit!
+2024-07-21 14:35:52.160062 [info] : Client[23](127.0.0.1:53182) quit, UserCount:1
+2024-07-21 14:35:52.596760 [info] : Client[18](127.0.0.1:58518) in, userCount:2
+2024-07-21 14:35:52.596815 [info] : Client[18] in!
+2024-07-21 14:35:52.596820 [info] : Client[23](127.0.0.1:58520) in, userCount:3
+2024-07-21 14:35:52.596822 [info] : Client[23] in!
+2024-07-21 14:35:52.601886 [info] : Client[24](127.0.0.1:58526) in, userCount:4
+2024-07-21 14:35:52.601951 [info] : Client[24] in!
+2024-07-21 14:35:52.601966 [info] : Client[31](127.0.0.1:58536) in, userCount:5
+2024-07-21 14:35:52.601979 [info] : Client[31] in!
+2024-07-21 14:35:52.605798 [info] : Client[33](127.0.0.1:58552) in, userCount:6
+2024-07-21 14:35:52.605862 [info] : Client[33] in!

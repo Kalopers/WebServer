@@ -1,0 +1,29 @@
+2024-07-21 12:42:50.852040 [info] : ========== Server Init ==========
+2024-07-21 12:42:50.852060 [info] : Port:1316, OpenLinger: false
+2024-07-21 12:42:50.852062 [info] : Listen Mode: ET, OpenConn Mode: ET
+2024-07-21 12:42:50.852063 [info] : LogSys level: 1
+2024-07-21 12:42:50.852065 [info] : srcDir: /home/kalo/WebServer/code/resources/
+2024-07-21 12:42:50.852105 [info] : SqlConnPool num: 12, ThreadPool num: 6
+2024-07-21 12:42:50.852108 [info] : ========== Server start ==========
+2024-07-21 12:43:29.696568 [info] : Client[18](127.0.0.1:45224) in, userCount:1
+2024-07-21 12:43:29.696644 [info] : Client[18] in!
+2024-07-21 12:43:29.806588 [info] : Client[21](127.0.0.1:45230) in, userCount:2
+2024-07-21 12:43:29.806729 [info] : Client[21] in!
+2024-07-21 12:43:30.132763 [info] : Client[23](127.0.0.1:45234) in, userCount:3
+2024-07-21 12:43:30.132925 [info] : Client[23] in!
+2024-07-21 12:44:54.864688 [info] : Timer expired, id: 18.
+2024-07-21 12:44:54.864749 [info] : Client[18] quit!
+2024-07-21 12:44:54.864778 [info] : Client[18](127.0.0.1:45224) quit, UserCount:2
+2024-07-21 12:44:54.864790 [info] : Timer expired, id: 23.
+2024-07-21 12:44:54.864792 [info] : Client[23] quit!
+2024-07-21 12:44:54.864798 [info] : Client[23](127.0.0.1:45234) quit, UserCount:1
+2024-07-21 12:44:55.191755 [info] : Client[18](127.0.0.1:45402) in, userCount:2
+2024-07-21 12:44:55.191807 [info] : Client[18] in!
+2024-07-21 12:47:20.516166 [info] : Timer expired, id: 18.
+2024-07-21 12:47:20.516213 [info] : Client[18] quit!
+2024-07-21 12:47:20.516240 [info] : Client[18](127.0.0.1:45402) quit, UserCount:1
+2024-07-21 12:47:20.854789 [info] : Client[18](127.0.0.1:54850) in, userCount:2
+2024-07-21 12:47:20.854836 [info] : Client[18] in!
+2024-07-21 12:48:30.402699 [info] : Timer expired, id: 18.
+2024-07-21 12:48:30.402983 [info] : Client[18] quit!
+2024-07-21 12:48:30.403198 [info] : Client[18](127.0.0.1:54850) quit, UserCount:1
