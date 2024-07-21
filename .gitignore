@@ -1,3 +1,7 @@
 testlog*/
 test_app
 bin/
+log/
+webbench-1.5/tags
+webbench-1.5/webbench
+webbench-1.5/webbench.o
