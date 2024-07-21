@@ -1,8 +1,0 @@
-2024-07-21 14:25:09.169199 [info] : ========== Server Init ==========
-2024-07-21 14:25:09.169224 [info] : Port:1316, OpenLinger: false
-2024-07-21 14:25:09.169228 [info] : Listen Mode: ET, OpenConn Mode: ET
-2024-07-21 14:25:09.169229 [info] : LogSys level: 1
-2024-07-21 14:25:09.169231 [info] : srcDir: /home/kalo/WebServer/build/resources/
-2024-07-21 14:25:09.169297 [info] : SqlConnPool num: 12, ThreadPool num: 6
-2024-07-21 14:25:09.169305 [info] : ========== Server start ==========
-2024-07-21 14:25:10.673761 [info] : Client[18](127.0.0.1:58326) in, userCount:1
