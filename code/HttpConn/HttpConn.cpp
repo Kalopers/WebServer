@@ -1,7 +1,7 @@
 #include "HttpConn.hpp"
 
 bool HttpConn::isET = false;
-const char *HttpConn::srcDir = "/var/www";
+const char *HttpConn::srcDir;// = "/home/kalo/WebServer/resources/";
 std::atomic<int> HttpConn::userCount(0);
 
 HttpConn::HttpConn() : _fd(-1), _addr({0}), _isClose(true), _iovCnt(0) {}
@@ -128,7 +128,7 @@ bool HttpConn::process()
 
     if (_response.FileLen() > 0 && _response.File())
     {
-        _iov[1].iov_base = _response.File().get();
+        _iov[1].iov_base = _response.File();
         _iov[1].iov_len = _response.FileLen();
         _iovCnt = 2;
     }

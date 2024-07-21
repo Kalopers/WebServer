@@ -78,15 +78,15 @@ void HttpResponse::MakeResponse(Buffer &buff)
     AddContent_(buff);
 }
 
-// char *HttpResponse::File()
-// {
-//     return _mmFile;
-// }
-
-std::unique_ptr<char[]> HttpResponse::File()
+char *HttpResponse::File()
 {
-    return std::move(_mmFile);
+    return _mmFile;
 }
+
+// std::unique_ptr<char[]> HttpResponse::File()
+// {
+//     return std::move(_mmFile);
+// }
 
 size_t HttpResponse::FileLen() const
 {
@@ -159,74 +159,74 @@ void HttpResponse::AddHeader_(Buffer &buff)
     buff.Append("Content-type: " + GetFileType() + "\r\n");
 }
 
-std::unique_ptr<char[]> HttpResponse::MapFile(const std::string &filePath, size_t &fileSize)
-{
-    int srcFd = open(filePath.data(), O_RDONLY);
-    if (srcFd < 0)
-    {
-        throw std::runtime_error("File Not Found");
-    }
-
-    struct stat fileStat;
-    if (fstat(srcFd, &fileStat) < 0)
-    {
-        close(srcFd);
-        throw std::runtime_error("Failed to get file status");
-    }
-
-    fileSize = fileStat.st_size;
-    auto mmFile = std::unique_ptr<char[]>(static_cast<char *>(mmap(0, fileSize, PROT_READ, MAP_PRIVATE, srcFd, 0)));
-    if (!mmFile)
-    {
-        close(srcFd);
-        throw std::runtime_error("Failed to map file");
-    }
-
-    close(srcFd);
-    return mmFile;
-}
-
-// void HttpResponse::AddContent_(Buffer &buff)
+// std::unique_ptr<char[]> HttpResponse::MapFile(const std::string &filePath, size_t &fileSize, Buffer &buff)
 // {
-//     int srcFd = open((_srcDir + _path).data(), O_RDONLY);
+//     int srcFd = open(filePath.data(), O_RDONLY);
 //     if (srcFd < 0)
 //     {
 //         ErrorContent(buff, "File NotFound!");
-//         return;
 //     }
 
-//     LOG_DEBUG("file path %s", (_srcDir + _path).data());
-//     int *mmRet = (int *)mmap(0, _mmFileStat.st_size, PROT_READ, MAP_PRIVATE, srcFd, 0);
-//     if (*mmRet == -1)
+//     struct stat fileStat;
+//     if (fstat(srcFd, &fileStat) < 0)
 //     {
-//         ErrorContent(buff, "File NotFound!");
-//         return;
+//         close(srcFd);
+//         throw std::runtime_error("Failed to get file status");
 //     }
-//     _mmFile = (char *)mmRet;
+
+//     fileSize = fileStat.st_size;
+//     auto mmFile = std::unique_ptr<char[]>(static_cast<char *>(mmap(0, fileSize, PROT_READ, MAP_PRIVATE, srcFd, 0)));
+//     if (!mmFile)
+//     {
+//         close(srcFd);
+//         throw std::runtime_error("Failed to map file");
+//     }
+
 //     close(srcFd);
-//     buff.Append("Content-length: " + std::to_string(_mmFileStat.st_size) + "\r\n\r\n");
+//     return mmFile;
 // }
 
 void HttpResponse::AddContent_(Buffer &buff)
 {
-    try
+    int srcFd = open((_srcDir + _path).data(), O_RDONLY);
+    if (srcFd < 0)
     {
-        size_t fileSize;
-        _mmFile = MapFile(_srcDir + _path, fileSize);
-        buff.Append("Content-length: " + std::to_string(fileSize) + "\r\n\r\n");
+        ErrorContent(buff, "File NotFound!");
+        return;
     }
-    catch (const std::runtime_error &e)
+
+    LOG_DEBUG("file path %s", (_srcDir + _path).data());
+    int *mmRet = (int *)mmap(0, _mmFileStat.st_size, PROT_READ, MAP_PRIVATE, srcFd, 0);
+    if (*mmRet == -1)
     {
-        ErrorContent(buff, e.what());
+        ErrorContent(buff, "File NotFound!");
+        return;
     }
+    _mmFile = (char *)mmRet;
+    close(srcFd);
+    buff.Append("Content-length: " + std::to_string(_mmFileStat.st_size) + "\r\n\r\n");
 }
+
+// void HttpResponse::AddContent_(Buffer &buff)
+// {
+//     try
+//     {
+//         size_t fileSize;
+//         _mmFile = MapFile(_srcDir + _path, fileSize, buff);
+//         buff.Append("Content-length: " + std::to_string(fileSize) + "\r\n\r\n");
+//     }
+//     catch (const std::runtime_error &e)
+//     {
+//         ErrorContent(buff, e.what());
+//     }
+// }
 
 void HttpResponse::UnmapFile()
 {
     if (_mmFile)
     {
-        munmap(_mmFile.get(), _mmFileStat.st_size);
-        _mmFile.reset();
+        munmap(_mmFile, _mmFileStat.st_size);
+        _mmFile = nullptr;
     }
 }
 

@@ -15,9 +15,12 @@
 class HttpRequest
 {
 private:
-    bool _ParseRequestLine(std::string_view line);
-    void _ParseHeader(std::string_view line);
-    void _ParseBody(std::string_view line);
+    // bool _ParseRequestLine(std::string_view line);
+    // void _ParseHeader(std::string_view line);
+    // void _ParseBody(std::string_view line);
+    bool _ParseRequestLine(const std::string& lin);
+    void _ParseHeader(const std::string& lin);
+    void _ParseBody(const std::string& lin);
 
     void _ParsePath();
     void _ParsePost();

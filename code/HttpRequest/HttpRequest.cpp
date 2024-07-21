@@ -43,13 +43,7 @@ bool HttpRequest::parse(Buffer &buff)
         const char *begin = buff.Peek();
         const char *end = buff.BeginWriteConst();
         const char *lineEnd = std::search(begin, end, CRLF, CRLF + 2);
-        if (lineEnd == end)
-        {
-            LOG_ERROR("Not a complete line");
-            return false;
-        }
-
-        std::string_view line(begin, lineEnd - begin);
+        std::string line(buff.Peek(), lineEnd);
         switch (_state)
         {
         case REQUEST_LINE:
@@ -82,38 +76,37 @@ bool HttpRequest::parse(Buffer &buff)
     return true;
 }
 
-// bool HttpRequest::_ParseRequestLine(const std::string &line)
-// {
-//     std::regex patten("^([^ ]*) ([^ ]*) HTTP/([^ ]*)$");
-//     std::smatch subMatch;
-
-//     if (regex_match(line, subMatch, patten))
-//     {
-//         _method = subMatch[1];
-//         _path = subMatch[2];
-//         _version = subMatch[3];
-//         _state = HEADERS;
-//         return true;
-//     }
-//     LOG_ERROR("RequestLine Error");
-//     return false;
-// }
-
-bool HttpRequest::_ParseRequestLine(std::string_view line)
+bool HttpRequest::_ParseRequestLine(const std::string &line)
 {
-    std::cmatch subMatch;
+    std::smatch subMatch;
 
-    if (std::regex_match(line.begin(), line.end(), subMatch, request_line_pattern))
+    if (regex_match(line, subMatch, request_line_pattern))
     {
-        _method = subMatch[1].str();
-        _path = subMatch[2].str();
-        _version = subMatch[3].str();
+        _method = subMatch[1];
+        _path = subMatch[2];
+        _version = subMatch[3];
         _state = HEADERS;
         return true;
     }
     LOG_ERROR("RequestLine Error");
     return false;
 }
+
+// bool HttpRequest::_ParseRequestLine(std::string_view line)
+// {
+//     std::cmatch subMatch;
+
+//     if (std::regex_match(line.begin(), line.end(), subMatch, request_line_pattern))
+//     {
+//         _method = subMatch[1].str();
+//         _path = subMatch[2].str();
+//         _version = subMatch[3].str();
+//         _state = HEADERS;
+//         return true;
+//     }
+//     LOG_ERROR("RequestLine Error");
+//     return false;
+// }
 
 void HttpRequest::_ParsePath()
 {
@@ -134,26 +127,12 @@ void HttpRequest::_ParsePath()
     }
 }
 
-// void HttpRequest::_ParseHeader(const std::string &line)
-// {
-//     patten = std::regex(R"(^([^:]*): ?(.*)$)", std::regex::optimize);
-//     std::smatch subMatch;
-//     if (regex_match(line, subMatch, patten))
-//     {
-//         _header[subMatch[1]] = subMatch[2];
-//     }
-//     else
-//     {
-//         _state = BODY;
-//     }
-// }
-
-void HttpRequest::_ParseHeader(std::string_view line)
+void HttpRequest::_ParseHeader(const std::string &line)
 {
-    std::cmatch subMatch;
-    if (std::regex_match(line.begin(), line.end(), subMatch, header_pattern))
+    std::smatch subMatch;
+    if (regex_match(line, subMatch, header_pattern))
     {
-        _header[subMatch[1].str()] = subMatch[2].str();
+        _header[subMatch[1]] = subMatch[2];
     }
     else
     {
@@ -161,21 +140,34 @@ void HttpRequest::_ParseHeader(std::string_view line)
     }
 }
 
-// void HttpRequest::_ParseBody(const std::string &line)
+// void HttpRequest::_ParseHeader(std::string_view line)
 // {
-//     _body = line;
-//     _ParsePost();
-//     _state = FINISH;
-//     LOG_DEBUG("Body: %s, len: %d", line.c_str(), line.size());
+//     std::cmatch subMatch;
+//     if (std::regex_match(line.begin(), line.end(), subMatch, header_pattern))
+//     {
+//         _header[subMatch[1].str()] = subMatch[2].str();
+//     }
+//     else
+//     {
+//         _state = BODY;
+//     }
 // }
 
-void HttpRequest::_ParseBody(std::string_view line)
+void HttpRequest::_ParseBody(const std::string &line)
 {
     _body = line;
     _ParsePost();
     _state = FINISH;
-    LOG_DEBUG("Body: %s, len: %d", line.data(), line.size());
+    LOG_DEBUG("Body: %s, len: %d", line.c_str(), line.size());
 }
+
+// void HttpRequest::_ParseBody(std::string_view line)
+// {
+//     _body = line;
+//     _ParsePost();
+//     _state = FINISH;
+//     LOG_DEBUG("Body: %s, len: %d", line.data(), line.size());
+// }
 
 int HttpRequest::ConverHex(char ch)
 {
