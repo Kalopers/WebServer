@@ -8,7 +8,7 @@ OBJS = ../code/Buffer/*.cpp ../code/SQL/*.cpp ../code/Log/*.cpp ../code/ThreadPo
 	   ../code/HttpConn/*.cpp ../code/Epoller/*.cpp ../code/Server/*.cpp  ../code/main.cpp
 
 all: $(OBJS)
-	$(CXX) $(CFLAGS) $(OBJS) -o ../bin/$(TARGET)  -pthread -lmysqlclient
+	$(CXX) $(CFLAGS) $(OBJS) -o ../bin/$(TARGET)  -lpthread -L/usr/lib/x86_64-linux-gnu -lmysqlclient
 
 clean:
 	rm -rf ../bin/$(OBJS) $(TARGET)

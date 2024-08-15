@@ -21,12 +21,13 @@ void SqlConnPool::Init(const char *host, int port, const char *user, const char 
         if (!conn)
         {
             LOG_ERROR("MySQL Init Error!");
-            assert(conn);
+            return;
         }
         conn = mysql_real_connect(conn, host, user, pwd, dbName, port, nullptr, 0);
         if (!conn)
         {
             LOG_ERROR("MySQL Conn Error!")
+            return;
         }
         _connQue.emplace(conn);
     }

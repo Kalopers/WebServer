@@ -9,13 +9,12 @@ WebServer::WebServer(
 {
     srcDir_ = getcwd(nullptr, 256);
     assert(srcDir_);
-    strcat(srcDir_, "/resources/");
+    strcat(srcDir_, "/resources");
     HttpConn::userCount = 0;
     HttpConn::srcDir = srcDir_;
+    std::cout << "Work Directory: " << srcDir_ << std::endl;
 
-    // 初始化操作
-    SqlConnPool::Instance()->Init("localhost", sqlPort, sqlUser, sqlPwd, dbName, connPoolNum); // 连接池单例的初始化
-    // 初始化事件和初始化socket(监听)
+    SqlConnPool::Instance()->Init("localhost", sqlPort, sqlUser, sqlPwd, dbName, connPoolNum);
     InitEventMode_(trigMode);
     if (!InitSocket_())
     {
@@ -42,6 +41,7 @@ WebServer::WebServer(
             LOG_INFO("SqlConnPool num: %d, ThreadPool num: %d", connPoolNum, threadNum);
         }
     }
+    std::cout << "WebServer Working on http://127.0.0.1:" << port << "/" << std::endl;
 }
 
 WebServer::~WebServer()
@@ -279,12 +279,10 @@ bool WebServer::InitSocket_()
     addr.sin_addr.s_addr = htonl(INADDR_ANY);
     addr.sin_port = htons(port_);
 
-    // 优雅关闭
     {
         struct linger optLinger = {0};
         if (openLinger_)
         {
-            /* 优雅关闭: 直到所剩数据发送完毕或超时 */
             optLinger.l_onoff = 1;
             optLinger.l_linger = 1;
         }
@@ -306,9 +304,7 @@ bool WebServer::InitSocket_()
     }
 
     int optval = 1;
-    /* 端口复用 */
-    /* 只有最后一个套接字会正常接收数据。 */
-    ret = setsockopt(listenFd_, SOL_SOCKET, SO_REUSEADDR, (const void *)&optval, sizeof(int));
+    ret = setsockopt(listenFd_, SOL_SOCKET, SO_REUSEADDR | SO_REUSEPORT, (const void *)&optval, sizeof(int));
     if (ret == -1)
     {
         LOG_ERROR("set socket setsockopt error!");
@@ -316,7 +312,6 @@ bool WebServer::InitSocket_()
         return false;
     }
 
-    // 绑定
     ret = bind(listenFd_, (struct sockaddr *)&addr, sizeof(addr));
     if (ret < 0)
     {
@@ -325,7 +320,6 @@ bool WebServer::InitSocket_()
         return false;
     }
 
-    // 监听
     ret = listen(listenFd_, 6);
     if (ret < 0)
     {
@@ -333,6 +327,7 @@ bool WebServer::InitSocket_()
         close(listenFd_);
         return false;
     }
+
     ret = epoller_->AddFd(listenFd_, listenEvent_ | EPOLLIN); // 将监听套接字加入epoller
     if (ret == 0)
     {
@@ -345,7 +340,6 @@ bool WebServer::InitSocket_()
     return true;
 }
 
-// 设置非阻塞
 int WebServer::SetFdNonblock(int fd)
 {
     assert(fd > 0);

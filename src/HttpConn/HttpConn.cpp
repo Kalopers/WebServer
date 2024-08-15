@@ -1,7 +1,7 @@
 #include "HttpConn.hpp"
 
 bool HttpConn::isET = false;
-const char *HttpConn::srcDir= "/resources";
+const char *HttpConn::srcDir;
 std::atomic<int> HttpConn::userCount(0);
 
 HttpConn::HttpConn() : _fd(-1), _addr({0}), _isClose(true), _iovCnt(0) {}
